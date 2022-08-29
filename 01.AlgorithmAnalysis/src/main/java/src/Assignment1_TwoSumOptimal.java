@@ -1,15 +1,14 @@
 package src;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Assignment1_TwoSumOptimal {
     public static void main(String[] args) {
-       // int[] array = new int[]{20, 2, 23, 8, 9, 11};
-        int[] array = {20, 2,  23, 7, 9,11};   int target = 11;
-        System.out.println(Arrays.toString(twoSumOptimalSolution(array, target)));
+        // int[] array = new int[]{20, 2, 23, 8, 9, 11};
+        int[] array = {20, 2, 23, 7, 9, 11};
+        int target = 11;
+        System.out.println(Arrays.toString(twoSumOptimalSolution_OlMe(array, target)));
     }
 
     public static int[] twoSumOptimalSolution(int[] array, int targetValue) {
@@ -21,6 +20,16 @@ public class Assignment1_TwoSumOptimal {
             if (map.containsKey(potentialMatch)) return new int[]{i, map.get(potentialMatch)};
             else map.put(array[i], i);
 
+        }
+        return new int[]{};
+    }
+
+    public static int[] twoSumOptimalSolution_OlMe(int[] array, int targetValue) {
+        List<Integer> list = new ArrayList<>();
+        for (int i = 0; i < array.length; i++) {
+            int potentialMatch = targetValue - array[i];
+            if (list.contains(potentialMatch)) return new int[]{i, list.indexOf(potentialMatch)};
+            else list.add(array[i]);
         }
         return new int[]{};
     }
