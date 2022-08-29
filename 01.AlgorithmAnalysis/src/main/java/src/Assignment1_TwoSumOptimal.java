@@ -7,8 +7,9 @@ import java.util.Map;
 
 public class Assignment1_TwoSumOptimal {
     public static void main(String[] args) {
-        int[] array = new int[]{20, 2, 23, 7, 9, 11};
-        System.out.println(Arrays.toString(twoSumOptimalSolutionUmran(array, 9)));
+       // int[] array = new int[]{20, 2, 23, 8, 9, 11};
+        int[] array = {20, 2,  23, 7, 9,11};   int target = 11;
+        System.out.println(Arrays.toString(twoSumOptimalSolution(array, target)));
     }
 
     public static int[] twoSumOptimalSolution(int[] array, int targetValue) {
@@ -24,7 +25,7 @@ public class Assignment1_TwoSumOptimal {
         return new int[]{};
     }
 
-    public static int[] twoSumOptimalSolutionUmran(int[] nums, int target) {  // O(n)
+   /* public static int[] twoSumOptimalSolutionUmran(int[] nums, int target) {  // O(n)  Do not work
 
         int[] indexes = new int[2];
         ArrayList<Integer> tmp = new ArrayList<>();
@@ -33,18 +34,20 @@ public class Assignment1_TwoSumOptimal {
             tmp.add(num);
         }
         Arrays.sort(nums);     // input array is sorted
-
+        System.out.println(Arrays.toString(nums));
         for (int i = 0, j = 1; i < nums.length; i++, j++) {
             if (nums[i] > target) continue;          // target lover than current
             if (target - nums[i] == nums[j]) {                  // getting the indexes for sorted array
+
                 indexes[0] = i;
                 indexes[1] = j;
-                break;
+                 break;
             }
         }
+        if (indexes[0]==indexes[1]) return new int[]{};
         indexes[0] = tmp.indexOf(nums[indexes[0]]);      //finding indexes for unsorted input
         indexes[1] = tmp.indexOf(nums[indexes[1]]);
         return indexes;
-    }
+    }*/
 
 }
